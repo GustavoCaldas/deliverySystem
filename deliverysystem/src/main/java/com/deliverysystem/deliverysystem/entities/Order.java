@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+// import javax.persistence.EnumType;
+// import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +37,7 @@ public class Order implements Serializable {
 	@Getter @Setter private Double latitude;
 	@Getter @Setter private Double longitude;
 	@Getter @Setter private Instant moment;
-	@Enumerated(EnumType.STRING)
+	// @Enumerated(EnumType.STRING)
 	@Getter @Setter private OrderStatus status;
 	
 	@ManyToMany
