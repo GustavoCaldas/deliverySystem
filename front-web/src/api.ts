@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:8080';
-const mapboxToken = '';
+const API_URL = 'https://deliverysystem-gus.herokuapp.com';
+const mapboxToken = process.env.REACT_APP_ACCESS_TOKEN_MAP_BOX;
 
 export function fetchProducts() {
     return axios(`${API_URL}/products`)
