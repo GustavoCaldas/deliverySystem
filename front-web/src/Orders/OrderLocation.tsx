@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import AsyncSelect from 'react-select/async';
-import Placeholder from 'react-select/src/components/Placeholder';
 import { fetchLocalMapBox } from '../api';
 import { OrderLocationData } from './Types';
 
