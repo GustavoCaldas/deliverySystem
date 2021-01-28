@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import AsyncSelect from 'react-select/async';
+import Placeholder from 'react-select/src/components/Placeholder';
 import { fetchLocalMapBox } from '../api';
 import { OrderLocationData } from './Types';
 
@@ -27,7 +28,7 @@ function OrderLocation( {onChangeLocation} : Props) {
         position: initialPosition
     })
     
-    const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) => {
+    const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) : Promise<Place[]> => {
         const response = await fetchLocalMapBox(inputValue);
       
         const places = response.data.features.map((item: any) => {
@@ -42,8 +43,9 @@ function OrderLocation( {onChangeLocation} : Props) {
         });
 
         callback(places);
+        return places;
       };
-      
+
       const handleChangeSelect = (place: Place) => {
         setAddress(place);
         onChangeLocation({
