@@ -37,7 +37,6 @@ public class Order implements Serializable {
 	@Getter @Setter private Double latitude;
 	@Getter @Setter private Double longitude;
 	@Getter @Setter private Instant moment;
-	// @Enumerated(EnumType.STRING)
 	@Getter @Setter private OrderStatus status;
 	
 	@ManyToMany
@@ -45,6 +44,14 @@ public class Order implements Serializable {
 				joinColumns = @JoinColumn(name = "order_id"),
 				inverseJoinColumns = @JoinColumn(name = "product_id"))
 	@Getter private Set<Product> products = new HashSet<>();
+	
+	public Double getTotal() {
+		double sum = 0;
+		for (Product p : products) {
+			sum += p.getPrice();
+		}
+		return sum;
+	}
 
 	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
 		super();
