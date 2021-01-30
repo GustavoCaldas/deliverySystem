@@ -42,8 +42,7 @@ function Orders() {
           ...orderLocation!,
           products: productsIds
         }
-        console.log(payload);
-        
+
         saveOrder(payload)
             .then(response => {
                 toast.error(`Pedido enviado com sucesso! Nº ${response.data.id}`);

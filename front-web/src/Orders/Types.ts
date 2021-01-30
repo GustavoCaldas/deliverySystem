@@ -17,8 +17,5 @@ export type ProductId = {
 }
 
 export type OrderPayLoad = {
-    latitude: number;
-    longitude: number;
-    address: string;
     products: ProductId[];
-}
+} & OrderLocationData;

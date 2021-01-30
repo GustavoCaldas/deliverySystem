@@ -46,8 +46,7 @@ function OrderLocation( {onChangeLocation} : Props) {
 
       const handleChangeSelect = (place: Place) => {
         setAddress(place);
-        console.log(address);
-        
+
         onChangeLocation({
             latitude: place.position.lat,
             longitude: place.position.lng,
