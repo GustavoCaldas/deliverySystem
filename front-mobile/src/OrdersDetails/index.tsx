@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, Alert, Linking } from "react-native";
 import React from 'react';
-import { RectButton, TouchableNativeFeedback } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Header from '../Header';
 import { Order } from "../types";
