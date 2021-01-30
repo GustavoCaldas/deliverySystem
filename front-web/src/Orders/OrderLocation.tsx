@@ -27,7 +27,7 @@ function OrderLocation( {onChangeLocation} : Props) {
         position: initialPosition
     })
     
-    const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) : Promise<Place[]> => {
+    const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) => {
         const response = await fetchLocalMapBox(inputValue);
       
         const places = response.data.features.map((item: any) => {
@@ -40,13 +40,14 @@ function OrderLocation( {onChangeLocation} : Props) {
             },
           });
         });
-
         callback(places);
-        return places;
+        return places
       };
 
       const handleChangeSelect = (place: Place) => {
         setAddress(place);
+        console.log(address);
+        
         onChangeLocation({
             latitude: place.position.lat,
             longitude: place.position.lng,
